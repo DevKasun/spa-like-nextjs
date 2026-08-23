@@ -242,6 +242,10 @@ button {
   box-shadow: var(--shadow-card), var(--glow);
 }
 
+a.workout-card {
+  cursor: pointer;
+}
+
 .workout-card__figure {
   display: flex;
   justify-content: center;
@@ -379,6 +383,234 @@ button {
 
 .body-view {
   opacity: 0.98;
+}
+
+/* ---------- Workout detail page ---------- */
+
+.workout-detail {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.workout-detail__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  padding: 8px 16px 8px 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  transition: color 0.2s ease, border-color 0.2s ease, transform 0.15s ease;
+}
+
+.workout-detail__back svg {
+  width: 16px;
+  height: 16px;
+}
+
+.workout-detail__back:hover {
+  color: var(--green-soft);
+  border-color: var(--border-strong);
+  transform: translateX(-2px);
+}
+
+.workout-detail__header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+}
+
+.workout-detail__title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  background: linear-gradient(180deg, #ffffff 30%, var(--green-soft));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.workout-detail__header .workout-card__tags {
+  justify-content: center;
+}
+
+.workout-detail__content {
+  display: grid;
+  grid-template-columns: minmax(280px, 420px) 1fr;
+  gap: 40px;
+  align-items: center;
+  padding: 32px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.05), transparent),
+    var(--bg-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.workout-detail__figure {
+  display: flex;
+  justify-content: center;
+  background: radial-gradient(ellipse at 50% 0%, rgba(34, 197, 94, 0.1), transparent 70%);
+  border-radius: var(--radius-md);
+}
+
+.workout-detail__figure .body-figure {
+  max-width: 360px;
+  max-height: none;
+}
+
+.workout-detail__muscles {
+  gap: 14px;
+  padding-top: 0;
+  border-top: none;
+}
+
+.workout-detail__muscles .muscle-list__row dd {
+  justify-content: flex-start;
+}
+
+.workout-detail__muscles .muscle-badge {
+  padding: 8px 18px;
+  font-size: 0.9rem;
+}
+
+@media (max-width: 720px) {
+  .workout-detail__content {
+    grid-template-columns: 1fr;
+    padding: 20px;
+  }
+}
+
+.workout-detail__info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.workout-detail__description {
+  color: var(--text-muted);
+  font-size: 0.98rem;
+  line-height: 1.65;
+}
+
+.workout-detail__eyebrow {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+}
+
+.workout-detail__panels {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+.workout-detail__panel {
+  padding: 24px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, rgba(34, 197, 94, 0.05), transparent),
+    var(--bg-soft);
+  box-shadow: var(--shadow-card);
+}
+
+.workout-detail__panel-title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--green-bright);
+  margin-bottom: 14px;
+}
+
+.workout-detail__panel p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.workout-detail__list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.workout-detail__list li {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.workout-detail__list li::before {
+  content: "▸";
+  color: var(--green-bright);
+  flex-shrink: 0;
+  line-height: 1.55;
+}
+
+.workout-detail__stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.workout-detail__stat {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 18px;
+  min-width: 110px;
+  flex: 1;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--bg);
+}
+
+.workout-detail__stat-label {
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-faint);
+}
+
+.workout-detail__stat-value {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  text-transform: capitalize;
+}
+
+.workout-detail__related {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.workout-detail__section-title {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.workout-detail__related-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 /* ---------- Status / empty / error ---------- */

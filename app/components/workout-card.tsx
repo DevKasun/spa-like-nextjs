@@ -1,9 +1,10 @@
+import Link from "next/link";
 import { BodyFigure } from "@/app/components/body-figure";
 import { MUSCLE_LABELS, type Workout } from "@/app/lib/workouts";
 
 export function WorkoutCard({ workout }: { workout: Workout }) {
   return (
-    <article className="workout-card">
+    <Link href={`/workouts/${workout.id}`} className="workout-card">
       <div className="workout-card__figure">
         <BodyFigure
           mainMuscle={workout.mainMuscle}
@@ -44,6 +45,6 @@ export function WorkoutCard({ workout }: { workout: Workout }) {
           </div>
         </dl>
       </div>
-    </article>
+    </Link>
   );
 }

@@ -201,11 +201,7 @@ function PartGroup({
     : secondary.has(name)
       ? "body-part is-secondary"
       : "body-part";
-  return (
-    <g key={name} className={className}>
-      {children}
-    </g>
-  );
+  return <g className={className}>{children}</g>;
 }
 
 export function BodyFigure({
@@ -217,7 +213,7 @@ export function BodyFigure({
 }) {
   const { primary, secondary } = buildHighlights(mainMuscle, secondaryMuscles);
   const renderPart = (name: string) => (
-    <PartGroup name={name} primary={primary} secondary={secondary}>
+    <PartGroup key={name} name={name} primary={primary} secondary={secondary}>
       {FRONT_PARTS[name] ?? BACK_PARTS[name]}
     </PartGroup>
   );
